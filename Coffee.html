@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+  <title>Coffee Website</title>
+<head>
+<style>
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: 'poppins' , Sans-Serif;
+    }
+    nav{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+     color: #f1eceb;
+     background: #161515;
+     position: fixed;
+     width: 100%;
+    }
+    nav ul{
+      display: flex;
+      list-style: none;
+      gap: 1em;
+    }
+    nav ul li a{
+      text-decoration: none;
+      color: #6F4E37;
+      position: relative;
+      font-size: 18px;
+      font-weight: 500;
+    } 
+    nav ul li a::after{
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      background: #D4AF37;
+      left: 0;
+      border-radius: 2px;
+      transition: 0.5s;
+    }
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+    .humburg{
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .humburg div{
+      width: 25px;
+      height: 3px;
+      margin: 4px 4px;
+      background: #D4AF37;
+    }
+    .logo{
+      color:#6F4E37;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-left: 10px;
+    }
+    .logo i{
+      font-size: 30px;
+      color: #D4AF37;
+    }
+    .logo span{
+      color: #D4AF37;
+    }
+    .bn{
+      display: flex; 
+      gap: 30px;
+      margin-right: 50px;
+    }
+    .btn{
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 18px;
+    }
+    .btn-2{
+      color: white;
+      background: #6F4E37;
+      border: none;
+      outline: none;
+    }
+    .btn-2:hover{
+      background: #2c1416;
+      transform: translateY(-3px);
+    }
+    .btn-1{
+      background: transparent;
+      color: #6F4E37;
+      border: 2px solid #6F4E37;
+    }
+    .btn-1:hover{
+      transform: translateY(-3px);
+      background: #D4AF37;
+    }
+    .container{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+
+    }
+    .Home{
+      aspect-ratio: 1;
+      }
+    .home-1 {
+    background: black;
+    color: white;
+    
+    }
+    .home-2{
+      background-image: url('Img/cf.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .home-1 h4{
+      color: #6F4E37;
+      font-size: 22px;
+      margin-left: 30px;
+    }
+    .home-1 h1{
+      font-size: 4em;
+      margin-left: 30px;
+      margin-top: 70px;
+      font-family: 'playfair Display';
+    }
+    .home-1 span{
+      color: #D4AF37;
+    }
+    .home-1 p{
+      font-size: 1.1em;
+      margin-left: 30px;
+    }
+    .home-1 .bn{
+      margin-top: 120px;
+      margin-left: 30px;
+    }
+    .home-1 button{
+      font-size: 1.5em;
+    }
+     .signature hr{
+      width: 8%;
+      text-align: center;
+      background: #D4AF37;
+      height: 4px;
+      border: none;
+      border-radius: 3px;
+    }
+    .selection{
+      background: #161515;
+      padding-bottom: 150px;
+    }
+    .signature{
+      border-top: 4px solid #D4AF37;
+      text-align: center;
+      background: #161515;
+      padding: 30px 0;
+    }
+    .signature h1{
+      color: #D4AF37;
+      font-size: 3em;
+      font-family: 'playfair Display';
+    }
+    .signature h4{
+      color: #D4AF37 ;
+      font-size: 2em;
+      font-weight: 400;
+      margin-top: 70px;
+    }
+    .signature p{
+      color: white;
+      font-size: 1.2em;
+    }
+    .Products{
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+      gap: 2em;
+    }
+    .goods{
+      aspect-ratio: 1;
+      border-radius: 5px;
+      background: blue;
+      color: white;
+    }
+    .goods-1{
+      background: #3E2723;
+      border-radius: 15px;
+    }
+    .goods h2 ,p{
+      padding-left: 20px;
+    }
+    .goods h3{
+      padding-left: 20px;
+      color: #D4AF37;
+    }
+    .goods button{
+      background: #D4AF37;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 20px;
+      position: relative;
+    }
+    .tag-link{
+      top: -21px;
+      position: absolute;
+      
+    }
+
+    .tag-links{
+      top: -23px;
+      position: absolute;
+      
+    }
+      .Contant{
+      border-top: 4px solid #D4AF37;
+      background: #3E2723;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 50px;
+    }
+    .links h2{
+      position: relative;
+    }
+    .links h2::after{
+      content: "";
+      position: absolute;
+      background: #D4AF37;
+      left: 5px;
+      bottom: -10px;
+      height: 3px;
+      width: 25%;
+    }
+    .links-2 ul li{
+      list-style: none;
+    
+    }
+    .links-2 ul li a{
+      text-decoration: none;
+      color: white;
+      font-size: 1.2em;
+      line-height: 1.9;
+      
+    }
+    .links-2 a:hover{
+      color: #D4AF37;
+      padding-left: 5px;
+    }
+    .links-1{
+      text-align: start;
+      margin-left: 80px;
+      padding-left: 10px;
+    }
+    .links-1 h2, .links-2 h2, .links-3 h2{
+      padding-top: 30px;
+      font-size: 2em;
+      font-family: 'playfair Display';
+    }
+    .links-1 p{
+      font-size: 1em;
+      padding-top: 10px;
+      margin-left: -12px;
+      
+    }
+    .links-3{
+      margin-right: 90px;
+      padding-right: 100px;
+    }
+    .links-3 p{
+      font-size: 1em;
+    }
+    .links-3 h2{
+      margin-bottom: 30px;
+    }
+    footer{
+      text-align: center;
+      font-size: 1.2em;
+      background: #3E2723;
+      padding: 20px;
+      color: #c4A487;
+      border-top: 4px solid #3E2723;
+    }
+    .brand{
+      display: flex;
+      gap: 20px;
+      font-size: 28px;
+      padding-top: 20px;
+      cursor: pointer;
+      transform: rotateY("-5px");
+      margin-left: 10px;
+    }
+    .facebook{
+      color: blue;
+    }
+    .instagram{
+      color: rgb(199, 111, 111);
+    }
+    .twitter{
+      color: rgb(13, 171, 233);
+    }
+    .whatsapp{
+      color: rgb(14, 228, 157);
+    }
+    .sta{
+    display: flex;
+    justify-content: space-between;
+    color: #D4AF37;
+    align-items: center;
+    font-size: larger;
+    }
+    .con{
+    margin-right: 20px;
+     }
+
+      @media(max-width: 600px){
+      nav ul{
+        display: none;
+        flex-direction: column;
+        background:black;
+        border-radius: 5px;
+        top: 50px;
+        position: absolute;
+        width: 25%;
+        right: 1px;
+        padding-bottom: 30px;
+        padding-top: 10px;
+       }
+        nav ul.show{
+          display: flex;
+        }   
+        .humburg{
+          display: flex;
+        }
+        .container{
+          grid-template-columns: 1fr;
+        }
+        .Contant{
+          flex-wrap: wrap;
+        }
+        .bn{
+          gap: 5px;
+          margin-right: 5px;
+        }
+        .btn{
+          font-size: 14px;
+          padding: 1px 8px;
+        }
+        .home-1 h1{
+          font-size: 36px;
+          margin-left: 0;
+          margin-top: 20px;
+        }
+        .home-1 h4{
+          font-size: 16px;
+           padding-top: 62px;
+        }
+        .home-1 p{
+          font-size: 18px;
+          margin-left: 0;
+        }
+        .home-1 .bn{
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    .home-1 button{
+      font-size: 20px;
+    }
+    .bn{
+      display: none;
+    }
+    .signature h4{
+      margin-top: 0px;
+    }
+    .signature h1{
+      margin-top: -8px;
+    }
+    .Contant{
+margin-top: -80px;
+    }
+    .links-1{
+      margin-left: 0px;
+    }
+    .links-2{
+      margin-top: -45px;
+    }
+    .links-3{
+      margin-top: -60px;
+    }
+  }
+  </style>
+  
+  
+  
+  
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <i class="fas fa-mug-hot"></i>
+      <h2>Mob<span>Haven</span></h2> 
+    </div>
+    
+    
+    <ul id="menu">
+      <li><a href="#posh">Home</a></li>
+      <li><a href="#keno">Products</a></li>
+      <li><a href="#shoo">Location</a></li>
+      <li><a href="#shoo">Contant</a></li>
+    </ul>
+
+    
+    <div class="bn">
+      <button class="btn btn-1">Sign In</button>
+      <button class="btn btn-2">Order Online</button>
+    </div>
+
+    <div class="humburg" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+  
+  <div id="posh"></div>
+  <section>
+    <div class="container">
+       <div class="Home home-1">
+        <div class="title">
+        <h4><i class="fa fa-leaf" style="color: #D4AF37;"></i> Sourced Beans</h4>
+        <h1>Artsan Cofee <br><span>Crafted with Passion</span></h1>
+        <p>Discover single-origin Coffee rosted  to perfection in small batches for exceptional<br> flavor.Experience the Journey from beam to cup with our mastres rosters.</p>
+        </div>
+        <div class="bn">
+             <button class="btn btn-2">Expoler Our Brand</button>
+             <button class="btn btn-1">Visit Our Cafe</button>
+         </div>
+      </div>
+      <div class="Home home-2"></div>
+      
+    </div>
+  </section>
+  
+  <div id="keno">
+  <section class="selection">
+    <div class="signature">
+      <h4>Our selection</h4>
+      <h1>Signature Coffee Blends</h1>
+      <hr>
+      <p>Each batch Carefully roasted to highlight the unique characteristice of the<br> Beans</p>
+    </div>
+    <div class="Products">
+      <div class="goods goods-1">
+        <img src="Img/1.jpg" width="100%"  alt="p1">
+        <button class="tag-link">
+        BESTSELLER
+        </button>
+        <h2>Ethiopian Yigracheffe</h2>
+        <p>Floral notes with bright citrus acidity and a tea-like body. Light roast </p>
+        <div class="sta">
+        <div class="cash"><h3>$18.99</h3>
+        </div>
+        <div class="icon">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        </div>
+        
+        </div>
+      </div>
+      <div class="goods goods-1">
+        <img src="Img/2.jpg" width="100%"  alt="p1">
+        <button class="tag-link">20% OFF</button>
+        <h2>Colombian Supremo</h2>
+        <p>Rich caramel sweetness with nutty undertones and balanced acidity.Medium roast</p>
+        <div class="sta">
+        <div class="cash"><h3>$18.99</h3>
+        </div>
+        <div class="icon">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        </div>
+        
+        </div>
+      </div>
+      
+      <div class="goods goods-1">
+        <img src="Img/3.jpg" width="100%"  alt="p1">
+        <button class="tag-links">NEW</button>
+        <h2>Dark Roast Espresso</h2>
+        <p>Body and intensive with dark chocolate and notes and a creamy mouthfeet.Dark roast</p>
+        <div class="sta">
+        <div class="cash"><h3>$18.99</h3>
+        </div>
+        <div class="icon">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        </div>
+        
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </section>
+  <div id="shoo">
+   <section class="Contant">
+    <div class="links links-1">
+      <h2>About MobHaven</h2>
+      <p>Artsan Coffee roasters dedicated to quality,<br> sustainability, and the perfect cup.</p>    
+      
+      <div class="brand">
+        <div class="facebook">
+          <i class="fab fa-facebook"></i>
+        </div>
+        
+         <div class="instagram">
+          <i class="fab fa-instagram"></i>
+        </div>
+         <div class="twitter">
+          <i class="fab fa-twitter"></i>
+        </div>
+         <div class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </div>
+    </div>
+    <div class="links links-2">
+      <h2>Quick links</h2>
+      <ul>
+        <li><a href="#">Coffee Blends</a></li>
+        <li><a href="#">Brewing guides</a></li>
+        <li><a href="#">sustainability</a></li>
+        <li><a href="#">Wholesale</a></li>
+      </ul>
+    </div>
+    <div class="links links-3">
+      <h2>
+       Contant Us</h2>
+      <p><i class="fas fa-map-marker-alt" ></i>  123 Coffee Lane,Posta,OR </p>
+      <p> <i class="fas fa-phone" ></i>  (+255) 685 034 820</p>
+      <p> <i class="fas fa-envelope"></i>  Info@MobHaven.com</p>
+      <p><i class="fas fa-clock" ></i>  Mon|Sat:7am-8pm</p>
+    </div>
+  </section>
+  <footer>
+    <p>&copy 2025 MobHaven Roasters.All right reserved </p>
+  </footer>
+  </div>
+</body>
+<script>
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show")
+  }
+</script>
+</html>
